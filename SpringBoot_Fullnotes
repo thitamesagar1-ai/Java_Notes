@@ -1,0 +1,291 @@
+SPRING BOOT COMPLETE DETAILED NOTES (FULL SYLLABUS)
+
+1. INTRODUCTION TO SPRING BOOT
+
+Spring Boot is an open-source framework built on top of the Spring Framework to simplify Java application development.
+
+Developed by:
+Pivotal Software (now VMware) in 2014
+
+Definition:
+Spring Boot is used to create stand-alone, production-ready Spring applications with minimal configuration.
+
+Key Idea:
+Spring Boot removes boilerplate configuration and makes Spring applications faster and easier to develop.
+
+Advantages:
+- Faster development
+- No XML configuration required
+- Embedded server support (Tomcat, Jetty)
+- Production-ready features
+- Easy integration with databases and frameworks
+
+---
+
+2. SPRING BOOT DEPENDENCIES (IMPORTANT)
+
+Common dependencies used in projects:
+
+1. Spring Web:
+Used to build web applications and REST APIs
+
+2. Spring Boot DevTools:
+Provides auto restart and faster development experience
+
+3. Spring Data JPA:
+Used for database operations using ORM (Hibernate internally)
+
+4. Spring Boot Actuator:
+Used for monitoring application health and metrics
+
+5. MySQL Driver:
+Used for connecting Spring Boot application with MySQL database
+
+Database Note:
+If database is not created:
+use parameter:
+createDatabaseIfNotExist=true
+
+---
+
+3. CORE PRINCIPLES OF SPRING BOOT
+
+Spring Boot works on 3 main principles:
+
+1. Opinionated Defaults:
+Spring Boot provides default configurations so developer does not need to configure everything manually.
+
+Examples:
+- Default server (Tomcat)
+- Default project structure
+- Default dependency setup
+
+2. Convention over Configuration:
+Spring Boot follows standard conventions using annotations.
+
+Important Annotations:
+@Controller -> handles web requests
+@Service -> business logic layer
+@Repository -> database layer
+@Entity -> database mapping class
+
+3. Auto Configuration:
+Spring Boot automatically configures application based on dependencies added.
+
+Example:
+If Spring Data JPA is added → it automatically configures Hibernate + database connection
+
+4. Embedded Server:
+Spring Boot includes built-in server like Tomcat so no external server installation is needed.
+
+---
+
+4. USES OF SPRING BOOT
+
+Spring Boot is used for:
+
+- Web Applications
+- REST API development
+- Microservices architecture
+- Batch processing applications
+- Enterprise systems
+- Integration with frontend frameworks (React/Angular)
+- Cloud-based applications
+
+---
+
+5. HTTP REQUEST AND RESPONSE (IMPORTANT FOR BACKEND)
+
+HTTP Request:
+
+Contains two parts:
+
+1. Headers:
+- URL/URI
+- Method (GET, POST, PUT, DELETE)
+- Content-Type (JSON, text, image, video, PDF)
+- Authentication token
+- IP address
+- Date/time
+
+2. Body:
+- JSON data
+- Form data
+- Text data
+
+---
+
+HTTP Response:
+
+Contains two parts:
+
+1. Headers:
+- Content-Type
+- Content-Length
+- Status Code
+- Server info
+
+2. Body:
+- JSON response
+- HTML response
+- Text response
+
+---
+
+HTTP STATUS CODES:
+
+1xx -> Informational
+2xx -> Success (200 OK)
+3xx -> Redirection
+4xx -> Client error (404 Not Found)
+5xx -> Server error
+
+---
+
+6. REST vs SOAP (VERY IMPORTANT)
+
+REST:
+- Works on HTTP protocol
+- Lightweight
+- Uses JSON (mostly)
+- Easy to integrate
+- Faster performance
+- Stateless communication
+
+SOAP:
+- Uses XML format
+- Heavy compared to REST
+- More secure but complex
+- Requires strict standards
+
+Conclusion:
+REST is widely used in modern applications.
+
+---
+
+7. JSON (JavaScript Object Notation)
+
+JSON is a lightweight data format used to transfer data between client and server.
+
+Structure:
+Key-value pair format
+
+Example:
+{
+  "id": 1,
+  "name": "John",
+  "city": "Pune"
+}
+
+---
+
+8. ARRAY OF JSON OBJECTS
+
+Used when multiple records are returned.
+
+Example:
+[
+  {
+    "id": 1,
+    "name": "A"
+  },
+  {
+    "id": 2,
+    "name": "B"
+  }
+]
+
+---
+
+9. ENTITY CLASS MAPPING (SPRING BOOT + JPA)
+
+@Entity is used to map Java class to database table.
+
+Example:
+@Entity
+class Employee {
+  int id;
+  String fname;
+  String lname;
+}
+
+This becomes table in database.
+
+---
+
+10. @SPRINGBOOTAPPLICATION (VERY IMPORTANT)
+
+This is the main annotation in Spring Boot.
+
+It is a combination of:
+
+1. @Configuration
+2. @ComponentScan
+3. @EnableAutoConfiguration
+
+Meaning:
+It tells Spring Boot to start configuration, scan components, and auto-configure application.
+
+---
+
+11. POSTMAN (API TESTING TOOL)
+
+Postman is used to test REST APIs.
+
+Uses:
+- Testing GET request
+- Testing POST request
+- Sending JSON data
+- Checking response status
+
+---
+
+12. REAL TIME FLOW OF SPRING BOOT APPLICATION
+
+1. Client sends HTTP request
+2. Controller receives request
+3. Service layer processes logic
+4. Repository interacts with database
+5. Response returned as JSON
+
+Flow:
+Client → Controller → Service → Repository → Database
+
+---
+
+13. IMPORTANT SPRING BOOT FEATURES
+
+- Auto Configuration
+- Embedded Server
+- Microservice support
+- REST API support
+- Easy database integration
+- Minimal configuration
+
+---
+
+14. INTERVIEW QUESTIONS WITH ANSWERS
+
+Q1. What is Spring Boot?
+Spring Boot is a framework used to create stand-alone Spring applications with minimal configuration.
+
+Q2. Why Spring Boot is used?
+It reduces configuration, provides embedded server, and simplifies development.
+
+Q3. What is @SpringBootApplication?
+It is a combination of Configuration, ComponentScan, and AutoConfiguration.
+
+Q4. What is REST?
+REST is an architectural style used to create web services using HTTP.
+
+Q5. What is JSON?
+JSON is a lightweight data format used for data exchange.
+
+Q6. What is difference between REST and SOAP?
+REST is lightweight and uses JSON, SOAP uses XML and is heavy.
+
+Q7. What is Auto Configuration?
+Spring Boot automatically configures application based on dependencies.
+
+Q8. What is Postman?
+Postman is a tool used to test APIs.
