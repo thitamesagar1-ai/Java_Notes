@@ -1,0 +1,331 @@
+1. Types of Applications
+1.1 Standalone Applications
+
+Applications that run without internet connection.
+
+(a) GUI Based Application
+Graphical User Interface based applications.
+Example: Calculator, Notepad
+
+(b) CUI / Console Based Application
+Character/User Interface based applications running in terminal/command prompt.
+Example: Core Java console programs
+
+1.2 Web Applications
+
+Web applications run on browser and require internet connectivity. They follow client-server architecture and are deployed on web servers.
+
+Examples:
+Google, Banking Systems, ATM Applications, Telecom Applications
+
+📌 Important: Web applications run on server and are accessed via browser.
+
+2. Server
+
+A server is a system (hardware + software) that:
+
+Accepts client requests
+Processes requests
+Sends response back to client
+Types of Servers
+1) Hardware Server
+
+Physical machine that hosts applications.
+
+2) Software Server
+
+Web Servers:
+
+IIS
+Apache Tomcat (Servlet Container)
+GlassFish
+Jetty
+
+Application Servers:
+
+WebLogic
+JBoss / WildFly
+IBM WebSphere
+MySQL (Database Server)
+
+📌 Important Rule: One port = one application
+
+3. HTTP Protocol
+
+HTTP = HyperText Transfer Protocol
+
+📌 Important: It is a stateless protocol
+→ Each request is independent (no memory of previous request)
+
+4. HTTP Request & Response
+HTTP Request
+
+Headers:
+
+Method (GET, POST, PUT, DELETE)
+URL
+HTTP Version
+Content-Type
+Cookies
+User-Agent
+
+Body:
+
+Form data / JSON data
+HTTP Response
+
+Headers:
+
+Status Code
+Content-Type
+Content-Length
+
+Body:
+
+HTML / JSON / output data
+HTTP Status Codes
+2xx → Success (200 OK)
+3xx → Redirection (302)
+4xx → Client Error (404, 403, 400)
+5xx → Server Error (500)
+
+📌 Important: 404 = Not Found, 500 = Server Error
+
+5. HTTP Methods
+GET → Retrieve data from server
+POST → Send data to server
+PUT → Update existing data
+DELETE → Delete data
+
+📌 Important:
+GET = Read, POST = Create, PUT = Update, DELETE = Remove
+
+6. Servlet Basics
+
+📌 Important Definition:
+Servlet is a Java program that runs on server and handles HTTP requests & responses.
+
+Servlet Life Cycle
+Loading
+Instantiation
+init()
+service() → doGet / doPost
+destroy()
+
+📌 Important: service() method handles request processing
+
+7. Servlet Collaboration
+
+📌 Important Concept: Communication between servlets or resources
+
+7.1 RequestDispatcher
+RequestDispatcher rd = request.getRequestDispatcher("SecondServlet");
+Methods:
+forward() → transfer request internally (URL NOT change)
+include() → include response from another resource
+
+📌 Important: Works inside same application (server-side)
+
+7.2 sendRedirect()
+response.sendRedirect("url");
+
+📌 Important: Client-side redirection
+
+URL changes
+Can go outside application
+New request is created
+8. Difference: RequestDispatcher vs sendRedirect
+RequestDispatcher
+Server-side
+Same application
+URL does NOT change
+Faster
+Uses forward() / include()
+sendRedirect
+Client-side
+Can go outside application
+URL changes
+Slower (2 requests)
+
+📌 Important Interview Point:
+RequestDispatcher = internal navigation
+sendRedirect = external navigation
+
+9. Client-Server Flow (Servlet Flow)
+Client sends HTTP request
+Server receives request
+Request goes to Servlet
+Servlet processes request
+Response generated
+Response sent to browser
+Output displayed
+
+📌 Important: Servlet acts as middle layer between client and server
+
+⭐ INTERVIEW QUESTIONS WITH ANSWERS
+Q1. What are types of applications?
+
+Answer:
+There are two types of applications:
+
+Standalone Applications (GUI and CUI)
+Web Applications
+Q2. What is a server?
+
+Answer:
+A server is a system (hardware/software) that receives client requests, processes them, and sends responses back over a network.
+
+Q3. What is HTTP request and response?
+
+Answer:
+HTTP Request is sent by client to server containing method, URL, headers and body.
+HTTP Response is sent by server containing status code, headers and response data.
+
+Q4. What are HTTP methods?
+
+Answer:
+HTTP methods are:
+
+GET → retrieve data
+POST → send data
+PUT → update data
+DELETE → delete data
+Q5. What is a Servlet?
+
+Answer:
+A Servlet is a Java program that runs on a server and handles HTTP requests and generates responses dynamically.
+
+Q6. What is Servlet Collaboration?
+
+Answer:
+Servlet collaboration is the process where one servlet communicates with another servlet or resource using RequestDispatcher or sendRedirect.
+
+Q7. Difference between RequestDispatcher and sendRedirect?
+
+Answer:
+RequestDispatcher:
+
+Server-side
+URL does not change
+Used for internal communication
+
+sendRedirect:
+
+Client-side
+URL changes
+Can redirect outside application
+✔ FINAL IMPORTANT POINTS
+HTTP is stateless
+Servlet is server-side Java program
+RequestDispatcher = internal flow
+sendRedirect = external flow
+One port = one application
+Servlet is backbone of Java web development
+6. Servlet Advanced Concepts (NEW)
+6.1 ServletConfig
+
+📌 Important Definition:
+ServletConfig is used to provide configuration information to a single servlet.
+
+Features:
+Defined per servlet
+Stores initialization parameters
+Available only to that servlet
+Example use:
+DB username/password
+servlet-specific config
+6.2 ServletContext
+
+📌 Important Definition:
+ServletContext is used to provide application-wide configuration shared across all servlets.
+
+Features:
+Global scope (entire application)
+Shared among all servlets
+Used for common data
+Difference:
+ServletConfig → single servlet
+ServletContext → whole application
+⭐ Interview Question (Important)
+Q: Difference between ServletConfig and ServletContext?
+
+Answer:
+ServletConfig is used for servlet-specific configuration, while ServletContext is used for application-wide shared configuration.
+
+7. JDBC Integration with Servlet (NEW)
+
+📌 Important Concept:
+Servlets are commonly used with JDBC to interact with databases.
+
+Steps of JDBC with Servlet:
+Load Driver
+Establish Connection
+Create Statement
+Execute Query
+Process Result
+Close Connection
+Example Use Cases:
+Login system
+Registration form
+CRUD operations
+Common CRUD Operations:
+CREATE → Insert data
+READ → Select data
+UPDATE → Modify data
+DELETE → Remove data
+⭐ Interview Question
+Q: Why is JDBC used with Servlets?
+
+Answer:
+JDBC is used in Servlets to connect and interact with databases for performing dynamic operations like insert, update, delete, and fetch data.
+
+Todays Lecture Agenda :
+
+
+1) Web.xml file/Deployment Descriptive file :
+
+- the web xml file is also called as deployment descriptive file 
+- we create an web.xml file in WEBINF folder
+- in latest version it is not compulsory to create xml file
+- in latest version we used the @webservlet annotation on the class.
+
+
+2) @WebServlet Annotation :
+
+- this annotation is used only for servlet class level.
+-The @WebServlet annotation is used in Java Servlets to declare a servlet without needing to define it in the web.xml file. It simplifies the configuration process by allowing you to directly map a servlet to a specific URL pattern within the servlet class.
+- it is an exactly replacement of web.xml file/ deployment descriptive file
+
+
+
+http GET() :
+
+1) limited amount of data can be sent because data is sent in header
+2) not secure because data is exposed in URL bar
+3) can be bookmarked
+4) it is more efficient
+5) get is slightly faster 
+
+http POST() :
+
+1) large amount of data can be sent because data is sent in body
+2) secured because data is not exposed in URL
+3) cannot be bookmarked
+4) it is less efficient
+5) post is slightly slower
+
+
+doGet() : is used to handle HTTP GET request. used for retrieving data from the server.
+
+doPost() : is used to handle the HTTP POST request. typically used for submitting data to the server.
+
+
+
+Note : By default html call Get method.
+
+
+summary & Interview Questions
+
+1) what is @Webservlet annotation
+2) what is web.xml file/ deployment descriptor file
+3) what is difference betn get and post

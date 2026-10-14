@@ -1,0 +1,387 @@
+MYSQL COMPLETE NOTES (FULL SYLLABUS + EASY + INTERVIEW READY)
+
+1. INTRODUCTION TO MYSQL
+
+MySQL is an open-source Relational Database Management System (RDBMS).
+
+Features:
+- Open source and free
+- Fast and reliable
+- Scalable for small and large applications
+- Cross-platform
+- Uses SQL (Structured Query Language)
+
+---
+
+2. DATABASE AND TABLES
+
+Database:
+A collection of structured data stored in organized format.
+
+Table:
+A collection of rows and columns used to store data.
+
+Row = record
+Column = field/attribute
+
+Example:
+Student table → stores student records
+
+---
+
+3. TYPES OF DATABASES
+
+RDBMS (Relational Database):
+- Uses tables (rows and columns)
+- Uses SQL
+- Examples: MySQL, Oracle, PostgreSQL
+
+Non-RDBMS:
+- No fixed table structure
+- Stores data as JSON, key-value, documents
+- Examples: MongoDB, Cassandra, Redis
+
+---
+
+4. SQL (STRUCTURED QUERY LANGUAGE)
+
+SQL is used to communicate with database.
+
+Operations:
+- Create database/table
+- Insert data
+- Retrieve data
+- Update data
+- Delete data
+
+---
+
+5. BASIC MYSQL COMMANDS
+
+show databases;
+create database test;
+use test;
+show tables;
+drop database test;
+
+select version();
+select now();
+select curdate();
+select curtime();
+
+---
+
+6. TABLE OPERATIONS
+
+Create table:
+create table employee(id int, name varchar(30), address varchar(50));
+
+Insert data:
+insert into employee values(1,'A','Pune');
+
+Multiple insert:
+insert into employee values
+(2,'B','Mumbai'),
+(3,'C','Delhi');
+
+Select data:
+select * from employee;
+
+Update:
+update employee set name='XYZ' where id=1;
+
+Delete:
+delete from employee where id=1;
+
+---
+
+7. PRIMARY KEY & NOT NULL
+
+Primary Key:
+- Uniquely identifies each record
+- Cannot be NULL
+- Only one per table
+
+Not Null:
+- Column must always have value
+
+Example:
+emp_id int primary key
+name varchar(50) not null
+
+---
+
+8. NULL VALUES
+
+NULL means no value stored.
+
+Check NULL:
+select * from employee where email IS NULL;
+select * from employee where email IS NOT NULL;
+
+---
+
+9. OPERATORS
+
+AND:
+Both conditions must be true
+
+OR:
+Any one condition true
+
+NOT:
+Opposite condition
+
+Example:
+select * from employee where id=1 AND name='A';
+
+---
+
+10. ALTER COMMAND
+
+Used to modify table structure.
+
+Add column:
+ALTER TABLE employee ADD country varchar(50);
+
+Modify column:
+ALTER TABLE employee MODIFY mob_numb int;
+
+Drop column:
+ALTER TABLE employee DROP COLUMN email;
+
+Rename column:
+ALTER TABLE employee RENAME COLUMN email TO gmail;
+
+Rename table:
+ALTER TABLE employee RENAME TO employee_record;
+
+---
+
+11. ORDER BY
+
+Used to sort data.
+
+Ascending:
+ORDER BY salary ASC;
+
+Descending:
+ORDER BY salary DESC;
+
+---
+
+12. LIMIT & OFFSET
+
+Limit:
+select * from employee LIMIT 3;
+
+Offset:
+select * from employee LIMIT 3 OFFSET 3;
+
+---
+
+13. COMMENTS
+
+Single line:
+-- comment
+
+Multi-line:
+/* comment */
+
+---
+
+14. ALIAS
+
+Used to rename column temporarily.
+
+Example:
+select email AS employee_email from employee;
+
+---
+
+15. AGGREGATE FUNCTIONS
+
+MIN() → smallest value
+MAX() → largest value
+COUNT() → number of rows
+AVG() → average
+SUM() → total
+
+---
+
+16. LIKE OPERATOR
+
+Used for pattern matching.
+
+Examples:
+name LIKE 'a%' → starts with a
+name LIKE '%a' → ends with a
+name LIKE '%sh%' → contains sh
+
+---
+
+17. IN OPERATOR
+
+Used for multiple values.
+
+Example:
+select * from employee where city IN ('Pune','Delhi');
+
+---
+
+18. BETWEEN OPERATOR
+
+Used for range.
+
+Example:
+select * from employee where age BETWEEN 18 AND 30;
+
+---
+
+19. AUTO INCREMENT
+
+Automatically increases primary key value.
+
+Example:
+id int auto_increment primary key
+
+---
+
+20. DATA TYPES
+
+DATE → YYYY-MM-DD
+DATETIME → YYYY-MM-DD HH:MM:SS
+TIMESTAMP → time stored automatically
+YEAR → 2024
+
+---
+
+21. UNIQUE KEY
+
+Ensures no duplicate values.
+
+Example:
+email varchar(50) UNIQUE
+
+---
+
+22. FOREIGN KEY
+
+Creates relationship between two tables.
+
+Parent table → Department
+Child table → Employee
+
+---
+
+23. JOINS (VERY IMPORTANT)
+
+INNER JOIN → matching records only
+LEFT JOIN → all left + matching right
+RIGHT JOIN → all right + matching left
+FULL JOIN → all records both sides
+CROSS JOIN → all combinations
+SELF JOIN → table joins itself
+
+---
+
+Example:
+SELECT e.name, d.dept_name
+FROM employees e
+INNER JOIN departments d
+ON e.dept_id = d.dept_id;
+
+---
+
+24. CONSTRAINTS IN SQL
+
+NOT NULL → cannot be empty
+UNIQUE → no duplicates
+PRIMARY KEY → unique + not null
+FOREIGN KEY → relation
+CHECK → condition validation
+DEFAULT → default value
+AUTO_INCREMENT → auto number
+
+---
+
+25. SQL CLAUSES
+
+SELECT → fetch data
+FROM → table name
+WHERE → condition
+GROUP BY → grouping data
+HAVING → group filter
+ORDER BY → sorting
+DISTINCT → remove duplicates
+LIMIT → restrict rows
+JOIN → combine tables
+UNION → merge results
+
+---
+
+26. IMPORTANT MISSING TOPICS (ADDED)
+
+26.1 GROUP BY Example
+select dept_id, count(*) from employee group by dept_id;
+
+---
+
+26.2 HAVING Clause
+select dept_id, count(*)
+from employee
+group by dept_id
+having count(*) > 2;
+
+---
+
+26.3 UNION
+Combines results of two queries (removes duplicates)
+
+---
+
+26.4 INDEX (IMPORTANT FOR INTERVIEW)
+
+Index improves query performance.
+
+Example:
+create index idx_name on employee(name);
+
+---
+
+26.5 VIEW (VIRTUAL TABLE)
+
+Example:
+create view emp_view as select name, salary from employee;
+
+---
+
+26.6 TRANSACTION (BASIC IDEA)
+
+Transaction = group of SQL operations
+
+Commands:
+COMMIT → save changes
+ROLLBACK → undo changes
+
+---
+
+INTERVIEW QUESTIONS
+
+Q1. What is MySQL?
+MySQL is an open-source RDBMS used to store and manage data.
+
+Q2. What is primary key?
+Primary key uniquely identifies each row.
+
+Q3. What is foreign key?
+Foreign key creates relationship between two tables.
+
+Q4. Difference between DELETE and TRUNCATE?
+DELETE removes selected rows, TRUNCATE removes all rows.
+
+Q5. What is JOIN?
+JOIN is used to combine two or more tables based on condition.
+
+Q6. What is normalization?
+Process of organizing data to reduce redundancy.

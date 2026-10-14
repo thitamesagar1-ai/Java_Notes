@@ -1,0 +1,366 @@
+JAVA SPRING BOOT + SPRING + HIBERNATE + SERVLET ANNOTATIONS (FULL MASTER NOTES)
+
+1. STEREOTYPE ANNOTATIONS (SPRING CORE)
+
+1. @Component
+Purpose: Generic annotation for any Spring-managed class
+Used at: Class level
+Why used: To tell Spring to create object automatically (Bean)
+
+Example:
+@Component
+class DemoService {}
+
+Use case:
+Base annotation for all Spring beans
+
+---
+
+2. @Service
+Purpose: Used for Business Logic Layer
+Used at: Class level
+Why used: To separate service logic from controller and DAO
+
+Example:
+@Service
+class UserService {}
+
+Use case:
+Calculations, processing logic, validations
+
+---
+
+3. @Repository
+Purpose: Used for Data Access Layer (DAO)
+Used at: Class level
+Why used:
+- Handles database operations
+- Converts SQL exceptions into Spring exceptions
+
+Example:
+@Repository
+class UserRepository {}
+
+Use case:
+Database queries, JPA operations
+
+---
+
+4. @Controller
+Purpose: Used for MVC Controllers (Web layer)
+Used at: Class level
+Why used: To handle HTTP requests and return views (JSP/HTML)
+
+Example:
+@Controller
+class HomeController {}
+
+Use case:
+Traditional Spring MVC applications
+
+---
+
+5. @RestController
+Purpose: Used for REST APIs
+Used at: Class level
+Why used:
+- Combination of @Controller + @ResponseBody
+- Returns JSON/XML directly
+
+Example:
+@RestController
+class UserController {}
+
+Use case:
+REST APIs (modern backend applications)
+
+---
+
+6. @SpringBootApplication
+Purpose: Main entry point of Spring Boot application
+Used at: Class level (main class only)
+
+Combination of:
+- @Configuration
+- @EnableAutoConfiguration
+- @ComponentScan
+
+Example:
+@SpringBootApplication
+class Application {}
+
+Use case:
+Starts Spring Boot application
+
+---
+
+2. REQUEST MAPPING ANNOTATIONS (SPRING MVC / BOOT)
+
+7. @RequestMapping
+Purpose: Maps HTTP requests to methods/classes
+Used at: Class level + Method level
+
+Example:
+@RequestMapping("/api")
+class UserController {}
+
+@RequestMapping("/users")
+method
+
+Use case:
+Generic mapping for all HTTP methods
+
+---
+
+8. @GetMapping
+Purpose: Handle GET requests
+Used at: Method level
+
+Example:
+@GetMapping("/users")
+
+Use case:
+Fetch data
+
+---
+
+9. @PostMapping
+Purpose: Handle POST requests
+Used at: Method level
+
+Example:
+@PostMapping("/users")
+
+Use case:
+Create new data
+
+---
+
+10. @PutMapping
+Purpose: Handle PUT requests
+Used at: Method level
+
+Use case:
+Update data
+
+---
+
+11. @DeleteMapping
+Purpose: Handle DELETE requests
+Used at: Method level
+
+Use case:
+Delete data
+
+---
+
+3. PARAMETER ANNOTATIONS (VERY IMPORTANT)
+
+12. @PathVariable
+Purpose: Extract value from URL path
+Used at: Method parameter level
+
+Example:
+@GetMapping("/users/{id}")
+public User getUser(@PathVariable int id)
+
+URL:
+/users/101
+
+Output:
+101 is extracted
+
+Use case:
+REST URLs with dynamic values
+
+---
+
+13. @RequestParam
+Purpose: Get query parameters from URL
+Used at: Method parameter level
+
+Example:
+@GetMapping("/users")
+public User getUser(@RequestParam String name)
+
+URL:
+/users?name=sahil
+
+Use case:
+Filtering, searching data
+
+---
+
+14. @RequestBody
+Purpose: Convert JSON request body into Java object
+Used at: Method parameter level
+
+Example:
+@PostMapping("/users")
+public void addUser(@RequestBody User user)
+
+Use case:
+POST/PUT requests with JSON data
+
+---
+
+4. SPRING MVC + BOOT SUPPORT ANNOTATIONS
+
+15. @ResponseBody
+Purpose: Converts Java object to JSON response
+Used at: Method level
+
+Example:
+@ResponseBody
+public User getUser()
+
+Use case:
+Return JSON without view page
+
+Note:
+Already included in @RestController
+
+---
+
+16. @ModelAttribute
+Purpose: Bind form data to object
+Used at: Method/Parameter level
+
+Use case:
+Spring MVC form handling
+
+---
+
+17. @ExceptionHandler
+Purpose: Handle exceptions in controller
+Used at: Method level
+
+Example:
+@ExceptionHandler(Exception.class)
+
+Use case:
+Custom error handling
+
+---
+
+5. HIBERNATE / JPA ANNOTATIONS
+
+18. @Entity
+Purpose: Marks class as database table
+Used at: Class level
+
+Use case:
+ORM mapping
+
+---
+
+19. @Id
+Purpose: Primary key
+Used at: Field level
+
+---
+
+20. @GeneratedValue
+Purpose: Auto increment primary key
+
+---
+
+21. @Table
+Purpose: Custom table name
+
+---
+
+22. @Column
+Purpose: Custom column name
+
+---
+
+23. @OneToOne
+Purpose: One-to-One relationship
+
+---
+
+24. @OneToMany
+Purpose: One-to-Many relationship
+
+---
+
+25. @ManyToOne
+Purpose: Many-to-One relationship
+
+---
+
+26. @ManyToMany
+Purpose: Many-to-Many relationship
+
+---
+
+6. SPRING BOOT ADVANCED ANNOTATIONS
+
+27. @Configuration
+Purpose: Define configuration class
+
+---
+
+28. @Bean
+Purpose: Create custom Spring bean
+
+---
+
+29. @ComponentScan
+Purpose: Scan packages for components
+
+---
+
+30. @EnableAutoConfiguration
+Purpose: Auto configuration of Spring Boot
+
+---
+
+7. TRANSACTION + SERVICE LAYER
+
+31. @Transactional
+Purpose: Manage database transactions automatically
+Used at: Class/Method level
+
+Use case:
+Commit / rollback handling
+
+---
+
+FINAL SUMMARY
+
+Spring annotations are divided into:
+
+1. Stereotype annotations (Component, Service, Repository)
+2. Web annotations (Controller, RestController)
+3. Request mapping annotations
+4. Parameter annotations (PathVariable, RequestParam, RequestBody)
+5. Hibernate/JPA annotations
+6. Spring Boot annotations
+7. Transaction annotations
+
+---
+
+INTERVIEW READY ANSWERS
+
+Q1. What is @RestController?
+It is used to create REST APIs and returns JSON response directly.
+
+Q2. Difference between @Controller and @RestController?
+@Controller returns view pages, @RestController returns JSON.
+
+Q3. What is @PathVariable?
+It is used to extract values from URL path.
+
+Q4. What is @RequestBody?
+It converts JSON request into Java object.
+
+Q5. What is @Service?
+It is used for business logic layer.
+
+Q6. What is @Repository?
+It is used for database layer and exception handling.
+
+Q7. What is @SpringBootApplication?
+It is combination of configuration, scanning, and auto configuration.

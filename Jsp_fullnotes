@@ -1,0 +1,228 @@
+### 🔹 JSP (Java Server Pages)
+
+- JSP = **HTML + Java**
+- Server-side technology used to create **dynamic web pages**
+- JSP is **converted into Servlet internally**
+- Used mainly for **presentation (UI)**
+
+**Important Points:**
+
+- Can write Java code, but ❌ _not recommended_
+- Works with Servlet (MVC architecture)
+- File extension: `.jsp`
+
+---
+
+### 🔹 JSP Lifecycle
+
+1. **Translation** → JSP → Servlet
+2. **Compilation** → Servlet → Bytecode
+3. **Loading & Instantiation**
+4. **Initialization** → `jspInit()` (once)
+5. **Request Handling** → `jspService()` (every request)
+6. **Destroy** → `jspDestroy()` (once)
+
+---
+
+### 🔹 JSP Lifecycle Methods
+
+- `jspInit()` → called once
+- `jspService()` → called for each request
+- `jspDestroy()` → called once
+
+---
+
+### 🔹 JSP Tags
+
+1. **Directive** → `<%@ %>`
+2. **Declaration** → `<%! %>`
+3. **Scriptlet** → `<% %>`
+4. **Expression** → `<%= %>`
+5. **Action** → `<jsp:include />`
+6. **Custom Tags**
+
+---
+
+### 🔹 JSP Implicit Objects
+
+- `request` → HttpServletRequest
+- `response` → HttpServletResponse
+- `out` → PrintWriter
+- `session` → HttpSession
+- `application` → ServletContext
+- `config` → ServletConfig
+- `pageContext`, `page`, `exception`
+
+👉 Predefined objects (no need to create)
+
+---
+
+### 🔹 JSP vs Servlet
+
+**Servlet here i have make changes:**
+
+- Pure Java code
+- Faster
+- Used as **Controller**
+- Handles all protocols
+- Methods: `init(), service(), destroy()`
+
+**JSP:**
+
+- HTML + Java
+- Easier for UI
+- Slightly slower (converted to servlet)
+- Used as **View**
+- Methods: `jspInit(), jspService(), jspDestroy()`
+
+---
+
+### 🔹 MVC Architecture
+
+- **Model** → JDBC / Hibernate (Database)
+- **View** → JSP / React (UI)
+- **Controller** → Servlet / Spring
+
+---
+
+### 🔹 JSP vs HTML
+
+**HTML:**
+
+- Static content
+- Runs in browser
+- No Java code
+- Faster
+
+**JSP:**
+
+- Dynamic content
+- Runs on server
+- Can use Java
+- Slightly slower
+
+---
+
+### 🔹 Important Interview Questions
+
+1. What is JSP?
+2. Difference between JSP and Servlet
+3. What are implicit objects?
+4. Types of JSP tags
+5. Explain JSP lifecycle
+6. How JSP works?
+7. JSP vs HTML
+
+---
+
+### 🔹 Key Rule (Very Important)
+
+👉 **JSP = Only UI (View)**
+👉 ❌ Do NOT write JDBC/business logic in JSP
+👉 ✅ Use Servlet + DAO for logic
+
+---
+
+### 🔹 1) What is JSP / Need of JSP / Explain JSP
+
+JSP (Java Server Pages) is a **server-side technology** used to create **dynamic web pages** by embedding Java code into HTML.
+It is used to **display data dynamically** and works as the **view layer in MVC architecture**.
+JSP is internally converted into a **Servlet** during execution.
+
+---
+
+### 🔹 2) Difference between JSP and Servlet
+
+**JSP:**
+
+- HTML + Java
+- Easy for UI design
+- Used as View
+- Slower (converted to servlet)
+- Methods: jspInit(), jspService(), jspDestroy()
+
+**Servlet:**
+
+- Pure Java code
+- Hard to design UI
+- Used as Controller
+- Faster
+- Methods: init(), service(), destroy()
+
+---
+
+### 🔹 3) What are Implicit Objects?
+
+Implicit objects are **predefined objects** available in JSP without declaration.
+They are created by the JSP container to handle request, response, and other operations.
+
+**Examples:**
+request, response, out, session, application, config, pageContext, exception
+
+---
+
+### 🔹 4) Types of JSP Tags
+
+1. **Directive Tag** → <%@ %> (page settings)
+2. **Declaration Tag** → <%! %> (variables/methods)
+3. **Scriptlet Tag** → <% %> (Java code)
+4. **Expression Tag** → <%= %> (display output)
+5. **Action Tag** → [jsp:...](jsp:...) (actions like include/forward)
+6. **Custom Tags** → user-defined tags
+
+---
+
+### 🔹 5) JSP Lifecycle / Explain Methods
+
+JSP Lifecycle steps:
+
+1. Translation (JSP → Servlet)
+2. Compilation
+3. Loading & Instantiation
+4. Initialization → jspInit()
+5. Request Processing → jspService()
+6. Destruction → jspDestroy()
+
+---
+
+### 🔹 6) How JSP Works?
+
+- JSP page contains HTML + JSP tags
+- When requested, it is converted into a **Servlet**
+- Then compiled into bytecode
+- Executed on server
+- Response is sent to browser
+
+---
+
+### 🔹 7) Difference between JSP and HTML
+
+**HTML:**
+
+- Static content
+- Runs in browser
+- No Java code
+- Faster
+
+**JSP:**
+
+- Dynamic content
+- Runs on server
+- Can use Java code
+- Requires server
+
+---
+
+### 🔹 Bonus: What is HttpSession?
+
+HttpSession is used to **store user data across multiple requests**.
+It helps maintain session (like login, cart).
+
+**Example:**
+
+```java
+HttpSession session = request.getSession();
+session.setAttribute("name","vikas");
+```
+
+---

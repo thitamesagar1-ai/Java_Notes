@@ -1,0 +1,315 @@
+HIBERNATE & ORM COMPLETE NOTES (FULL SYLLABUS)
+
+1. ORM (Object Relational Mapping)
+
+ORM stands for Object Relational Mapping.
+
+ORM is a technique that maps Java objects to database tables.
+
+Object = Java class
+Relational = Database table
+Mapping = Connecting object with table
+
+Example:
+Student class in Java becomes Student table in database
+
+Why ORM:
+- Reduces SQL writing
+- Easy database operations
+- Saves development time
+- Supports object-oriented programming
+
+
+2. HIBERNATE FRAMEWORK
+
+Hibernate is a Java-based ORM framework.
+
+It is used to map Java objects to database tables and perform database operations without writing SQL.
+
+Example:
+session.save(student)
+
+
+3. HIBERNATE VS JDBC
+
+Hibernate:
+- ORM framework
+- Uses annotations
+- No SQL required
+- Uses HQL
+- Supports relationships
+- Supports lazy loading
+- Automatic transaction management
+- Supports caching
+- Less code
+
+JDBC:
+- Database connectivity API
+- Uses SQL manually
+- Requires try-catch
+- No object mapping
+- Complex relationships
+- No lazy loading
+- Manual transactions
+- No caching
+- More code
+
+
+4. HIBERNATE CORE COMPONENTS
+
+Configuration:
+Loads DB settings and mappings
+
+SessionFactory:
+Creates Session objects
+
+Session:
+Used for CRUD operations
+
+Transaction:
+Used for commit and rollback
+
+
+5. POJO CLASS
+
+POJO = Plain Old Java Object
+
+Contains:
+- Variables
+- Constructor
+- Getters and setters
+- toString method
+
+Example:
+class Student {
+int id;
+String name;
+}
+
+
+6. PERSISTENT CLASS
+
+A class whose object is stored in database table is called persistent class.
+
+
+7. HIBERNATE ANNOTATIONS
+
+@Entity -> class is table
+@Id -> primary key
+@GeneratedValue -> auto increment
+@Table -> table name
+@Column -> column name
+
+Example:
+@Entity
+@Table(name="student")
+class Student {
+@Id
+@GeneratedValue
+int id;
+
+@Column(name="name")
+String name;
+}
+
+
+8. JPA (Java Persistence API)
+
+JPA is a specification for ORM frameworks.
+
+JPA defines rules and Hibernate implements them.
+
+JPA methods:
+persist()
+merge()
+remove()
+
+
+9. ASSOCIATION MAPPING
+
+One-to-One:
+One student → one laptop
+
+One-to-Many:
+One department → many employees
+
+Many-to-One:
+Many employees → one department
+
+Many-to-Many:
+Students ↔ Courses
+
+
+10. LAZY vs EAGER LOADING
+
+Lazy Loading:
+Data loads when needed
+Fast performance
+Default
+
+Eager Loading:
+Data loads immediately
+Slow performance
+
+
+11. CACHING
+
+First Level Cache:
+- Session level
+- Default
+
+Second Level Cache:
+- SessionFactory level
+- Shared cache
+
+
+12. PROXY OBJECT
+
+Proxy is a placeholder object used in lazy loading.
+
+
+13. OBJECT STATES
+
+Transient -> not saved in DB
+Persistent -> saved and attached to session
+Detached -> session closed
+Removed -> deleted
+
+
+14. HIBERNATE CFG FILE
+
+hibernate.cfg.xml contains:
+- DB connection
+- Dialect
+- Mapping info
+
+
+15. DIALECT
+
+Dialect is a bridge between Java and SQL database.
+
+
+16. HIBERNATE ARCHITECTURE (NEW)
+
+Flow:
+Configuration -> SessionFactory -> Session -> Transaction -> Database
+
+Explanation:
+Configuration reads config file
+SessionFactory creates Session objects
+Session performs CRUD operations
+Transaction manages commit/rollback
+
+
+17. HQL (HIBERNATE QUERY LANGUAGE) (NEW)
+
+HQL is object-oriented query language used in Hibernate.
+
+Example:
+from Student
+
+Features:
+- Works with objects, not tables
+- Database independent
+
+Example query types:
+select
+update
+delete
+
+
+18. CRITERIA API (NEW)
+
+Criteria API is used to create dynamic queries without SQL or HQL.
+
+Features:
+- Object-based query
+- Used for complex filtering
+
+Example use:
+search records dynamically
+
+
+19. TRANSACTION MANAGEMENT (DEEP)
+
+Methods:
+beginTransaction()
+commit()
+rollback()
+
+Example:
+transaction.begin()
+transaction.commit()
+
+
+20. CRUD OPERATIONS IN HIBERNATE (NEW)
+
+Create:
+session.save()
+
+Read:
+session.get()
+
+Update:
+session.update()
+
+Delete:
+session.delete()
+
+
+21. ENTITY LIFECYCLE (DEEP)
+
+1. Transient -> object created but not saved
+2. Persistent -> object saved in DB and linked with session
+3. Detached -> session closed but object exists
+4. Removed -> object deleted from DB
+
+
+22. ADVANCED MAPPING (OPTIONAL BUT IMPORTANT)
+
+@JoinColumn -> foreign key mapping
+@JoinTable -> many-to-many mapping table
+@EmbeddedId -> composite primary key
+
+
+23. REAL TIME EXAMPLE (UNDERSTANDING)
+
+E-commerce system:
+
+Product class -> product table
+User class -> user table
+
+Hibernate automatically maps objects to tables.
+
+
+INTERVIEW QUESTIONS
+
+Q1. What is ORM?
+ORM is mapping between Java objects and database tables.
+
+Q2. What is Hibernate?
+Hibernate is ORM framework used to map objects to database without SQL.
+
+Q3. Why Hibernate over JDBC?
+Less code, no SQL, supports mapping, caching, lazy loading.
+
+Q4. Core components of Hibernate?
+Configuration, SessionFactory, Session, Transaction.
+
+Q5. What is JPA?
+JPA is a standard specification for ORM frameworks.
+
+Q6. What is association mapping?
+Relationship between entities like one-to-one, one-to-many.
+
+Q7. What is lazy loading?
+Data loads only when required.
+
+Q8. What is HQL?
+HQL is object-oriented query language used in Hibernate.
+
+Q9. What is session in Hibernate?
+Session is used to perform database operations like save, update, delete.
+
+Q10. What is transaction?
+Transaction is used to commit or rollback database operations.

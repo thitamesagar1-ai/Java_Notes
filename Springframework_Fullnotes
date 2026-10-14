@@ -1,0 +1,250 @@
+SPRING CORE + MVC COMPLETE NOTES (FULL UPDATED SYLLABUS)
+
+1. INTRODUCTION TO SPRING
+(Spring Core - 6.0.17)
+
+Spring is a lightweight, open-source, loosely coupled framework used for enterprise Java applications.
+
+Features:
+- Developed by Rod Johnson (2003)
+- Reduces boilerplate code
+- Supports DI, IOC, AOP, MVC
+- Integrates with Hibernate, JDBC, JPA
+
+---
+
+2. IOC (INVERSION OF CONTROL)
+
+IOC means object creation and management is handled by Spring container.
+
+Key Idea:
+Programmer does not create objects manually.
+
+IOC Container creates and manages objects (Beans).
+
+---
+
+3. DEPENDENCY INJECTION (DI)
+
+DI is implementation of IOC.
+
+Definition:
+Spring automatically injects required dependencies into objects.
+
+Types:
+- Constructor Injection
+- Setter Injection
+
+Annotation:
+@Autowired
+
+---
+
+4. SPRING BEAN
+
+A Bean is an object managed by Spring container.
+
+Bean lifecycle:
+- Object creation
+- Dependency injection
+- Initialization
+- Use
+- Destroy
+
+---
+
+5. BEAN SCOPES (IMPORTANT MISSING TOPIC)
+
+Types of Bean Scopes:
+
+- singleton (default) -> one object per container
+- prototype -> new object every time
+- request -> one per HTTP request
+- session -> one per user session
+- application -> one per application
+
+Example:
+@Scope("prototype")
+
+---
+
+6. BEAN FACTORY VS APPLICATION CONTEXT
+
+BeanFactory:
+- Basic container
+- Lazy loading
+- Simple applications
+
+ApplicationContext:
+- Advanced container
+- Used in real projects
+- Supports AOP, events, annotations
+
+---
+
+7. AUTO WIRING (IMPORTANT)
+
+Auto wiring means Spring automatically injects dependencies.
+
+Annotations:
+@Autowired -> inject dependency automatically
+@Qualifier -> specify which bean to inject
+@Primary -> default bean selection
+
+---
+
+8. CONFIGURATION TYPES
+
+1. XML Configuration
+2. Annotation Based Configuration
+3. Java Based Configuration
+
+Annotations:
+@Configuration
+@Bean
+@ComponentScan
+
+---
+
+9. AOP (ASPECT ORIENTED PROGRAMMING)
+
+AOP is used to separate cross-cutting concerns like logging, security, transactions.
+
+Key Terms:
+Aspect -> class containing cross-cutting logic
+Advice -> action (before/after method)
+Join Point -> execution point
+Pointcut -> where to apply
+Weaving -> linking logic
+
+Example:
+Logging before every method execution
+
+---
+
+10. SPRING MVC
+
+Spring MVC follows Model View Controller architecture.
+
+Flow:
+Client -> DispatcherServlet -> Controller -> Model -> View -> Response
+
+Components:
+Model -> data
+View -> UI
+Controller -> request handler
+
+Annotations:
+@Controller
+@RequestMapping
+@Service
+@Repository
+
+---
+
+11. SPRING MVC ADVANCED (MISSING PART)
+
+Model Types:
+- Model
+- ModelMap
+- ModelAndView
+
+Form Handling:
+Used to get input from UI forms
+
+View Resolver:
+Maps logical view name to actual JSP/HTML page
+
+Validation:
+@Valid annotation used for form validation
+
+Exception Handling:
+@ExceptionHandler
+@ControllerAdvice
+
+---
+
+12. SPRING JDBC (IMPORTANT MISSING TOPIC)
+
+Spring JDBC simplifies database operations.
+
+Main Class:
+JdbcTemplate
+
+Features:
+- No need to write boilerplate code
+- Easy CRUD operations
+
+Example operations:
+- query()
+- update()
+- queryForObject()
+
+RowMapper:
+Used to map database rows to Java objects
+
+---
+
+13. SPRING REST API (VERY IMPORTANT)
+
+Spring REST is used to build APIs.
+
+Annotations:
+@RestController
+@GetMapping
+@PostMapping
+@PutMapping
+@DeleteMapping
+
+Example:
+GET -> fetch data
+POST -> create data
+
+Response format:
+JSON (mostly used)
+
+---
+
+14. EXCEPTION HANDLING IN SPRING
+
+Annotations:
+@ExceptionHandler -> handle specific exception
+@ControllerAdvice -> global exception handling
+
+---
+
+15. SPRING ADVANTAGES
+
+- Loose coupling using DI
+- Easy integration with Hibernate/JPA
+- Reduces boilerplate code
+- Supports MVC and REST
+- Better testability
+
+---
+
+INTERVIEW QUESTIONS WITH ANSWERS
+
+Q1. What is Spring?
+Spring is a lightweight Java framework used to build enterprise applications using IOC, DI, AOP, and MVC.
+
+Q2. What is IOC?
+IOC is a principle where Spring container manages object creation and lifecycle.
+
+Q3. What is Dependency Injection?
+DI is a process where Spring injects required dependencies automatically.
+
+Q4. What is Bean?
+A Bean is an object managed by Spring container.
+
+Q5. What are Bean scopes?
+Bean scopes define lifecycle of beans like singleton, prototype, session, request.
+
+Q6. What is Auto wiring?
+Auto wiring automatically injects dependencies using @Autowired.
+
+Q7. What is Spring MVC?
+Spring MVC is a framework used to build web applications using Model View Controller pattern.
+
+Q8. What is REST API in Spring?
+REST API is used to build web services using HTTP methods and JSON responses.
